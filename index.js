@@ -5,6 +5,7 @@ let navBackground = document.querySelector(".hamburger--background");
 let mobileNavItem = document.querySelectorAll(
   ".hamburger__mobile-navbar ul li a"
 );
+let mobileLogo = document.querySelector(".mobile-logo");
 let checkBox = document.querySelector(".hamburger-checkBox");
 openingPage.addEventListener("click", () => {
   openingPage.classList.add("hide-my-page");
@@ -15,6 +16,9 @@ openingPage.addEventListener("click", () => {
   }
   if (navBackground) {
     navBackground.classList.add("hamburger__open");
+  }
+  if (mobileLogo) {
+    mobileLogo.classList.add("logo__open");
   }
 });
 mobileNavItem.forEach((item) => {
