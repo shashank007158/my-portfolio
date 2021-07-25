@@ -1,0 +1,200 @@
+.work {
+  padding: 7rem 3rem 9rem;
+  display: grid;
+  grid-template-areas: "heading" "card" "button";
+  place-items: center;
+  background-color: $color-grey;
+  &--heading {
+    font-size: 2rem;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.75s ease;
+    grid: heading;
+
+    .primary--heading {
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+  }
+  &--projects {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-column-gap: 4rem;
+
+    .card {
+      height: 35rem;
+      width: 25rem;
+      grid: card;
+      &--content {
+        height: 100%;
+
+        position: relative;
+        padding: 5rem;
+        border-radius: 0.5rem;
+        transition: all 0.5s ease;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, 0.3);
+        transform-style: preserve-3d;
+
+        &--1 {
+          background: url(../../images/friendsbook.png) top/contain no-repeat;
+          background-color: $color-card;
+        }
+        &--2 {
+          background: url(../../images/uhost.png) top/contain no-repeat;
+          background-color: $color-card;
+        }
+
+        &--3 {
+          background: url(../../images/natour.png) top/contain no-repeat;
+          background-color: $color-card;
+        }
+        &--4 {
+          background: url(../../images/keeper-app.png) top/contain no-repeat;
+          background-color: $color-card;
+        }
+      }
+      &:hover .card--content {
+        transform: rotateY(180deg);
+      }
+      &--front,
+      &--back {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 2rem;
+        backface-visibility: hidden;
+      }
+      &--front {
+        text-align: center;
+        .card--picture {
+          height: 12rem;
+        }
+        .card--heading {
+          font-size: 2rem;
+          color: $color-primary-dark;
+        }
+        .card--details {
+          font-size: 1.6rem;
+          text-align: left;
+        }
+      }
+      &--back {
+        background: $color-primary-dark;
+        transform: rotateY(180deg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        div {
+          margin: 2rem;
+        }
+        a {
+          font-size: 5rem;
+          position: relative;
+          transition: all 0.5s ease;
+          &:link,
+          &:visited {
+            text-decoration: none;
+            text-transform: uppercase;
+            color: inherit;
+            padding: 1rem rem;
+            transform: all 0.4s ease;
+          }
+
+          &:hover,
+          &:active {
+            color: $color-white;
+            transform: translateX(1rem);
+          }
+        }
+        .card--code_link {
+          a {
+            &::after {
+              font-size: 1rem;
+              content: "Click here to see the code";
+              opacity: 0;
+              position: absolute;
+              text-align: center;
+              display: flex;
+              align-items: center;
+            }
+
+            &:hover::after {
+              opacity: 1;
+            }
+          }
+        }
+        .card--website {
+          a {
+            &::after {
+              font-size: 1rem;
+              content: "Click here to visit this website";
+              opacity: 0;
+              position: absolute;
+              text-align: center;
+              display: flex;
+              align-items: center;
+            }
+
+            &:hover::after {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+  &--more {
+    grid: button;
+    margin-top: 7rem;
+    a {
+      text-decoration: none;
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: $color-primary-dark;
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 0.2rem;
+        bottom: 0;
+        left: 0;
+        background-color: $color-primary-dark;
+        transform-origin: bottom left;
+        transition: all 0.3s ease;
+      }
+      &:hover {
+        &::after {
+          transform: scaleX(1);
+        }
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
+  .work--projects {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, minmax(0, 1fr));
+    grid-row-gap: 5rem;
+  }
+  .work--heading {
+    font-size: 1.6rem;
+  }
+  .card {
+    width: 100%;
+    &--content {
+      width: 100%;
+    }
+    &--code_link {
+      a::after {
+        opacity: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,213 @@
+.hamburger {
+  display: none;
+  &--background,
+  &__mobile-navbar,
+  &-checkBox {
+    display: none;
+  }
+}
+.mobile-logo {
+  display: none;
+}
+.main--header {
+  display: flex;
+  position: fixed;
+  padding: 0 2rem;
+  z-index: 1000;
+  width: 100%;
+  height: 5rem;
+  top: 0;
+  left: 0;
+  background: linear-gradient(
+    105deg,
+    $color-primary-light 0%,
+    $color-primary-dark 60%
+  );
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.7rem;
+  &__logo {
+    display: flex;
+    align-items: center;
+  }
+
+  &__navbar {
+    display: flex;
+    justify-content: flex-end;
+
+    ul {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      list-style: none;
+    }
+    li {
+      margin: 0 2rem;
+    }
+    a {
+      text-decoration: none;
+      text-transform: uppercase;
+      color: $color-white;
+      transition: all 0.2s ease;
+
+      &:hover,
+      &:active {
+        border-bottom: 4px solid $color-white;
+      }
+    }
+  }
+}
+.header-down {
+  animation: headerDown 0.6s 0.3s ease backwards;
+}
+@keyframes headerDown {
+  from {
+    opacity: 0;
+    transform: translateY(-6rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 768px) {
+  .main--header {
+    display: none;
+  }
+  .mobile-logo {
+    position: absolute;
+    display: flex;
+    top: 5%;
+    left: 5%;
+    height: 5rem;
+    img {
+      border-radius: 50%;
+      height: 100%;
+    }
+  }
+  .hamburger {
+    position: fixed;
+    z-index: 10;
+    background: $color-primary-dark;
+    height: 5rem;
+    width: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 5%;
+    right: 5%;
+    border-radius: 50%;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.7);
+    transition: all 0.4s ease;
+
+    &--background {
+      background: linear-gradient(135deg, $color-primary-light, $color-white);
+      height: 4rem;
+      width: 4rem;
+      border-radius: 50%;
+      display: flex;
+      position: fixed;
+      z-index: 10;
+      top: 6%;
+      right: 6%;
+      transition: all 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+    }
+    &-checkBox {
+      position: fixed;
+      display: flex;
+      height: 5rem;
+      width: 5rem;
+      top: 6%;
+      right: 6%;
+      z-index: 11;
+      opacity: 0;
+    }
+    &--icon {
+      height: 0.25rem;
+      width: 2.5rem;
+      background: $color-white;
+      position: absolute;
+      transition: all 0.4s 0.3s ease;
+
+      &::after,
+      &::before {
+        content: "";
+        position: absolute;
+        top: -1rem;
+        height: 0.25rem;
+        background: $color-white;
+        width: 100%;
+        transition: all 0.4s 0.2s ease;
+      }
+      &::after {
+        top: 1rem;
+      }
+    }
+    &__mobile-navbar {
+      position: fixed;
+      top: 50%;
+      left: 46%;
+      transform: translate(-50%, -50%);
+      z-index: 1500;
+      opacity: 0;
+      display: flex;
+      transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      margin: 0;
+      padding: 0;
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: left;
+        list-style: none;
+        li {
+          margin: 1rem 0;
+          font-weight: 600;
+          font-size: 2rem;
+
+          a {
+            &:link,
+            &:visited {
+              text-decoration: none;
+              text-transform: uppercase;
+              color: inherit;
+              padding: 1rem rem;
+              transform: all 0.4s ease;
+            }
+            &:hover,
+            &:active {
+              color: $color-white;
+              transform: scale(2);
+            }
+          }
+        }
+      }
+    }
+    &-checkBox:checked ~ &--icon::before {
+      top: 0;
+      transform: rotate(135deg);
+    }
+    &-checkBox:checked ~ .hamburger &--icon {
+      background-color: transparent;
+    }
+    &-checkBox:checked ~ .hamburger &--icon::before {
+      top: 0;
+      transform: rotate(135deg);
+    }
+    &-checkBox:checked ~ .hamburger &--icon::after {
+      top: 0;
+      transform: rotate(-135deg);
+    }
+    &-checkBox:checked ~ .hamburger--background {
+      transform: scale(80);
+    }
+    &-checkBox:checked ~ .hamburger &__mobile-navbar {
+      opacity: 1;
+    }
+  }
+}
+.hamburger__open {
+  animation: slideOut 0.5s 0.3s ease backwards;
+}

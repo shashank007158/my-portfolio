@@ -1,0 +1,142 @@
+.opening--page {
+  background: linear-gradient(
+    to top right,
+    $color-primary-light,
+    $color-primary-dark
+  );
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3000;
+
+  &__message {
+    text-transform: uppercase;
+    padding: 2rem;
+    text-align: center;
+
+    color: $color-white;
+    h1 {
+      font-size: 5rem;
+      color: $color-primary-dark;
+      animation: slideIn 0.4s ease backwards;
+      font-family: "Anton", sans-serif;
+      transform-origin: left;
+    }
+    h2 {
+      font-size: 4rem;
+      animation: slideIn 0.4s 0.5s ease backwards;
+      transform-origin: left;
+      font-family: "Anton", sans-serif;
+      font-weight: 500;
+    }
+    h3 {
+      font-size: 3rem;
+      letter-spacing: 2;
+      animation: slideIn 0.4s 1s ease backwards;
+      transform-origin: left;
+    }
+    p {
+      animation: zoomInOut 1s infinite linear;
+    }
+  }
+  &__image {
+    height: 25rem;
+
+    img {
+      height: 100%;
+      animation: slideOut 0.4s 0.25s ease backwards;
+      transform-origin: left;
+    }
+  }
+}
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slideOut {
+  from {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes zoomInOut {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.2);
+  }
+}
+@keyframes pageSlideOut {
+  from {
+    transform: translateX(20rem);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 0;
+  }
+}
+
+.hide-my-page {
+  height: 90vh;
+  width: 100%;
+  z-index: 0;
+  background: $color-white;
+  transform-origin: center;
+  transition: all 1s ease;
+
+  position: relative;
+
+  h2 {
+    color: $color-primary-light;
+    font-weight: bold;
+    font-size: 4rem;
+  }
+  h3 {
+    color: $color-primary-dark;
+    font-size: 3rem;
+  }
+  p {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  .opening--page {
+    flex-direction: column;
+    height: 100%;
+
+    &__message {
+      h1 {
+        font-size: 4rem;
+      }
+      h2 {
+        font-size: 3rem;
+      }
+      h3 {
+        font-size: 2rem;
+      }
+    }
+    &__image {
+      margin: 1rem 6.5rem 1rem 0;
+      height: 15rem;
+      text-align: center;
+    }
+  }
+}
