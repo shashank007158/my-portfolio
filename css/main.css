@@ -294,7 +294,7 @@ body {
     z-index: 1500;
     transform-origin: left;
     display: flex;
-    transition: all 0.8s 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition: all 0.8s 0.1s cubic-bezier(0.15, -0.37, 0.46, 1.11);
     margin: 0;
     padding: 0;
   }
