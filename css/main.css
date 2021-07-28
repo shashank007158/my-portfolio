@@ -480,8 +480,9 @@ body {
 }
 .work--projects {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   grid-column-gap: 4rem;
+  grid-row-gap: 4rem;
 }
 .work--projects .card {
   height: 35rem;
@@ -511,6 +512,10 @@ body {
 }
 .work--projects .card--content--4 {
   background: url(../../images/keeper-app.png) top/contain no-repeat;
+  background-color: #ebfeff;
+}
+.work--projects .card--content--5 {
+  background: url(../../images/weather-app.png) top/contain no-repeat;
   background-color: #ebfeff;
 }
 .work--projects .card:hover .card--content {
