@@ -57,6 +57,10 @@
           background: url(../../images/weather-app.png) top/contain no-repeat;
           background-color: $color-card;
         }
+        &--5 {
+          background: url(../../images/netflix.png) top/contain no-repeat;
+          background-color: $color-card;
+        }
       }
       &:hover .card--content {
         transform: rotateY(180deg);
