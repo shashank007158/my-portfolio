@@ -518,6 +518,10 @@ body {
   background: url(../../images/weather-app.png) top/contain no-repeat;
   background-color: #ebfeff;
 }
+.work--projects .card--content--6 {
+  background: url(../../images/netflix.png) top/contain no-repeat;
+  background-color: #ebfeff;
+}
 .work--projects .card:hover .card--content {
   transform: rotateY(180deg);
 }
